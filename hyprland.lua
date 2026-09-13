@@ -69,6 +69,7 @@ end)
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("QT_QPA_PLATFORMTHEME", "hyprqt6engine")
 
 -----------------------
 ----- PERMISSIONS -----
@@ -109,7 +110,7 @@ hl.config({
 		resize_on_border = false,
 
 		-- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
-		allow_tearing = false,
+		allow_tearing = true,
 
 		layout = "scrolling",
 	},
@@ -216,7 +217,8 @@ hl.config({
 hl.config({
 	misc = {
 		force_default_wallpaper = -1, -- Set to 0 or 1 to disable the anime mascot wallpapers
-		disable_hyprland_logo = false, -- If true disables the random hyprland logo / anime girl background. :(
+		disable_hyprland_logo = true, -- If true disables the random hyprland logo / anime girl background. :(
+		vrr = 1,
 	},
 })
 
@@ -231,6 +233,10 @@ hl.config({
 		kb_model = "",
 		kb_options = "compose:ralt",
 		kb_rules = "",
+		repeat_rate = 50,
+		repeat_delay = 300,
+
+		numlock_by_default = true,
 
 		follow_mouse = 1,
 
@@ -240,6 +246,10 @@ hl.config({
 		touchpad = {
 			natural_scroll = false,
 		},
+	},
+	cursor = {
+		no_warps = true,
+		no_break_fs_vrr = true,
 	},
 })
 
@@ -401,6 +411,43 @@ hl.window_rule({
 	match = { class = "hyprland-run" },
 
 	move = "20 monitor_h-120",
+	float = true,
+})
+
+hl.window_rule({
+	name = "cs2-performance-fixes",
+	match = { class = "cs2" },
+
+	immediate = true,
+	fullscreen = true,
+	no_anim = true,
+	no_blur = true,
+	no_shadow = true,
+	idle_inhibit = "focus",
+
+	stay_focused = true,
+	suppress_event = "activate",
+})
+
+hl.window_rule({
+	name = "bo2-performance-fixes",
+	match = { class = "plutonium-bootstrapper-win32.exe" },
+
+	immediate = true,
+	fullscreen = true,
+	no_anim = true,
+	no_blur = true,
+	no_shadow = true,
+	idle_inhibit = "focus",
+
+	stay_focused = true,
+	suppress_event = "activate",
+})
+
+hl.window_rule({
+	name = "hyprland-share-picker-float",
+	match = { class = "hyprland-share-picker" },
+
 	float = true,
 })
 
