@@ -91,7 +91,7 @@ hl.bind(
 -- 4. Screenshots
 hl.bind(
 	"SUPER + SHIFT + S",
-	hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'),
+	hl.dsp.exec_cmd("hyprshot -z -m region --clipboard-only"),
 	{ description = "Takes a screenshot of a region of the screen" }
 )
 
