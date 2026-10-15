@@ -79,3 +79,12 @@ hl.window_rule({
 
 	float = true,
 })
+
+hl.window_rule({
+	name = "brave-bitwarden-float",
+	match = { class = "^brave-nngceckbapebfimnlniiiahkandclblb-Default$" },
+
+	float = true,
+	center = true,
+	size = { 400, 600 },
+})
