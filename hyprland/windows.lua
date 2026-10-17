@@ -81,6 +81,13 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "Nautilus float",
+	match = { class = "org.gnome.Nautilus" },
+
+	float = true,
+})
+
+hl.window_rule({
 	name = "brave-bitwarden-float",
 	match = { class = "^brave-nngceckbapebfimnlniiiahkandclblb-Default$" },
 
